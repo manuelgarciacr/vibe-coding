@@ -1,24 +1,18 @@
 const IMPORT_MINIM_DESCOMPTE = 100;
 const FACTOR_DESCOMPTE = 0.9;
 
-function importLinia({ preu, quantitat }) {
-  return preu * quantitat;
-}
+const importLinia = ({ preu = 0, quantitat = 0 } = {}) => preu * quantitat;
 
-function aplicarDescompte(total) {
-  if (total > IMPORT_MINIM_DESCOMPTE) {
-    return total * FACTOR_DESCOMPTE;
-  }
-  return total;
-}
+const aplicarDescompte = (total) =>
+  total > IMPORT_MINIM_DESCOMPTE ? total * FACTOR_DESCOMPTE : total;
 
-function calcularTotal(productes) {
-  const subtotal = productes.reduce(
-    (acumulat, producte) => acumulat + importLinia(producte),
-    0
-  );
+const calcularTotal = (productes = []) => {
+  const subtotal = productes
+    .map(importLinia)
+    .reduce((acumulat, importActual) => acumulat + importActual, 0);
+
   return aplicarDescompte(subtotal);
-}
+};
 
 const productes = [
   { nom: "Llibre", preu: 20, quantitat: 2 },
