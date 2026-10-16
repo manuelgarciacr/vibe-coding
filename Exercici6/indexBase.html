@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FlexShop - La teva botiga online de tecnologia i electrònica de qualitat.">
     <title>Ecommerce Flexbox</title>
     <!-- HTML revalida; CSS/JS es cachen amb ?v= i es revaliden en canviar la versió -->
     <link rel="preload" href="styles.css?v=2" as="style">
@@ -10,9 +11,12 @@
     <script src="app.js?v=2" defer></script>
 </head>
 <body>
+    <!-- Enllaç ràpid per a usuaris de navegació per teclat i lectors de pantalla -->
+    <a href="#contingut-principal" class="skip-link">Salta al contingut principal</a>
+
     <header class="navbar" id="inici">
         <div class="nav-container">
-            <div class="logo">🛍️ FlexShop</div>
+            <a href="#inici" class="logo" aria-label="FlexShop - Pàgina d'inici">🛍️ FlexShop</a>
             <nav aria-label="Principal">
                 <ul class="nav-menu">
                     <li><a href="#inici">Inici</a></li>
@@ -20,9 +24,9 @@
                     <li><a href="#sobre-nosaltres">Sobre Nosaltres</a></li>
                     <li><a href="#contacte">Contacte</a></li>
                     <li class="cart-item">
-                        <a href="#cistella" id="cart-link">
+                        <a href="#cistella" id="cart-link" role="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="checkout-section" aria-label="Cistella de la compra: 0 articles">
                             🛒 Cistella
-                            <span id="cart-count" class="cart-count" aria-live="polite">0</span>
+                            <span id="cart-count" class="cart-count" aria-live="polite" aria-atomic="true">0</span>
                         </a>
                     </li>
                 </ul>
@@ -30,78 +34,91 @@
         </div>
     </header>
 
-    <main class="main-content">
-        <h1 class="section-title" id="productes">Els Nostres Productes</h1>
+    <main class="main-content" id="contingut-principal">
+        <section class="products-section" id="productes" aria-labelledby="productes-titol">
+            <h1 class="section-title" id="productes-titol">Els Nostres Productes</h1>
 
-        <div class="products-grid">
-            <article class="product-card" data-id="1">
-                <div class="product-image" aria-hidden="true">📱</div>
-                <div class="product-info">
-                    <h2 class="product-title">Smartphone Pro</h2>
-                    <p class="product-description">El darrer model amb càmera de 48MP i pantalla OLED de 6.7". Perfecte per a fotografia professional i gaming.</p>
-                    <div class="product-price">€599</div>
-                    <button type="button" class="add-to-cart" data-id="1" data-name="Smartphone Pro" data-price="599">Afegir al carret</button>
-                </div>
-            </article>
+            <div class="products-grid">
+                <article class="product-card" data-id="1" aria-labelledby="product-title-1">
+                    <div class="product-image" role="img" aria-label="Icona del Smartphone Pro">📱</div>
+                    <div class="product-info">
+                        <h2 class="product-title" id="product-title-1">Smartphone Pro</h2>
+                        <p class="product-description">El darrer model amb càmera de 48MP i pantalla OLED de 6.7". Perfecte per a fotografia professional i gaming.</p>
+                        <p class="product-price" aria-label="Preu: 599 euros"><data value="599">€599</data></p>
+                        <button type="button" class="add-to-cart" data-id="1" data-name="Smartphone Pro" data-price="599" aria-label="Afegir Smartphone Pro al carret">Afegir al carret</button>
+                    </div>
+                </article>
 
-            <article class="product-card" data-id="2">
-                <div class="product-image" aria-hidden="true">💻</div>
-                <div class="product-info">
-                    <h2 class="product-title">Laptop Ultra</h2>
-                    <p class="product-description">Portàtil lleuger amb processador Intel i7, 16GB RAM i SSD de 512GB. Ideal per a treball i estudis.</p>
-                    <div class="product-price">€899</div>
-                    <button type="button" class="add-to-cart" data-id="2" data-name="Laptop Ultra" data-price="899">Afegir al carret</button>
-                </div>
-            </article>
+                <article class="product-card" data-id="2" aria-labelledby="product-title-2">
+                    <div class="product-image" role="img" aria-label="Icona del Laptop Ultra">💻</div>
+                    <div class="product-info">
+                        <h2 class="product-title" id="product-title-2">Laptop Ultra</h2>
+                        <p class="product-description">Portàtil lleuger amb processador Intel i7, 16GB RAM i SSD de 512GB. Ideal per a treball i estudis.</p>
+                        <p class="product-price" aria-label="Preu: 899 euros"><data value="899">€899</data></p>
+                        <button type="button" class="add-to-cart" data-id="2" data-name="Laptop Ultra" data-price="899" aria-label="Afegir Laptop Ultra al carret">Afegir al carret</button>
+                    </div>
+                </article>
 
-            <article class="product-card" data-id="3">
-                <div class="product-image" aria-hidden="true">🎧</div>
-                <div class="product-info">
-                    <h2 class="product-title">Auriculars Wireless</h2>
-                    <p class="product-description">Auriculars bluetooth amb cancel·lació de soroll activa i bateria de 30 hores. So immersiu per a música i trucades.</p>
-                    <div class="product-price">€199</div>
-                    <button type="button" class="add-to-cart" data-id="3" data-name="Auriculars Wireless" data-price="199">Afegir al carret</button>
-                </div>
-            </article>
-        </div>
+                <article class="product-card" data-id="3" aria-labelledby="product-title-3">
+                    <div class="product-image" role="img" aria-label="Icona dels Auriculars Wireless">🎧</div>
+                    <div class="product-info">
+                        <h2 class="product-title" id="product-title-3">Auriculars Wireless</h2>
+                        <p class="product-description">Auriculars bluetooth amb cancel·lació de soroll activa i bateria de 30 hores. So immersiu per a música i trucades.</p>
+                        <p class="product-price" aria-label="Preu: 199 euros"><data value="199">€199</data></p>
+                        <button type="button" class="add-to-cart" data-id="3" data-name="Auriculars Wireless" data-price="199" aria-label="Afegir Auriculars Wireless al carret">Afegir al carret</button>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-        <section class="checkout-section" id="checkout-section">
-            <h2 class="section-title">Finalitzar Compra</h2>
-            <form class="checkout-form" id="checkout-form" novalidate>
-                <div class="form-group">
-                    <label for="name">Nom complet *</label>
-                    <input type="text" id="name" name="name" autocomplete="name" required>
-                    <div class="error-message" id="name-error">Si us plau, introdueix el teu nom complet</div>
-                </div>
+        <section class="checkout-section" id="checkout-section" aria-labelledby="checkout-title" aria-hidden="true" tabindex="-1">
+            <h2 class="section-title" id="checkout-title">Finalitzar Compra</h2>
 
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" autocomplete="email" required>
-                    <div class="error-message" id="email-error">Si us plau, introdueix un email vàlid</div>
-                </div>
+            <!-- Resum interactiu de la comanda (UX) -->
+            <section class="cart-summary" id="cart-summary" aria-label="Resum de la comanda"></section>
 
-                <div class="form-group">
-                    <label for="card">Número de targeta *</label>
-                    <input type="text" id="card" name="card" inputmode="numeric" maxlength="19" placeholder="1234 5678 9012 3456" autocomplete="cc-number" required>
-                    <div class="error-message" id="card-error">Si us plau, introdueix un número de targeta vàlid (16 dígits)</div>
-                </div>
+            <!-- Targeta de confirmació d'èxit accessible (UX) -->
+            <section class="checkout-success" id="checkout-success" style="display: none;" role="region" aria-live="polite" tabindex="-1"></section>
 
-                <div class="checkout-buttons">
-                    <button type="submit" class="btn btn-primary">Confirmar Compra</button>
-                    <button type="button" class="btn btn-secondary" id="cancel-checkout">Cancel·lar</button>
-                </div>
+            <form class="checkout-form" id="checkout-form" novalidate aria-labelledby="checkout-title">
+                <fieldset class="checkout-fieldset">
+                    <legend class="visually-hidden">Dades de contacte i pagament</legend>
+
+                    <div class="form-group">
+                        <label for="name">Nom complet <span class="required-indicator" aria-hidden="true">*</span></label>
+                        <input type="text" id="name" name="name" autocomplete="name" required aria-required="true" aria-invalid="false" aria-describedby="name-error">
+                        <p class="error-message" id="name-error" role="alert" aria-live="polite">Si us plau, introdueix el teu nom complet</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email <span class="required-indicator" aria-hidden="true">*</span></label>
+                        <input type="email" id="email" name="email" autocomplete="email" required aria-required="true" aria-invalid="false" aria-describedby="email-error">
+                        <p class="error-message" id="email-error" role="alert" aria-live="polite">Si us plau, introdueix un email vàlid</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="card">Número de targeta <span class="required-indicator" aria-hidden="true">*</span></label>
+                        <input type="text" id="card" name="card" inputmode="numeric" maxlength="19" placeholder="1234 5678 9012 3456" autocomplete="cc-number" required aria-required="true" aria-invalid="false" aria-describedby="card-error">
+                        <p class="error-message" id="card-error" role="alert" aria-live="polite">Si us plau, introdueix un número de targeta vàlid (16 dígits)</p>
+                    </div>
+
+                    <div class="checkout-buttons">
+                        <button type="submit" class="btn btn-primary" aria-label="Confirmar i finalitzar compra">Confirmar Compra</button>
+                        <button type="button" class="btn btn-secondary" id="cancel-checkout" aria-label="Cancel·lar compra i tancar formulari">Cancel·lar</button>
+                    </div>
+                </fieldset>
             </form>
         </section>
     </main>
 
-    <footer class="footer" id="contacte">
+    <footer class="footer" id="contacte" role="contentinfo" aria-label="Peu de pàgina">
         <div class="footer-content">
-            <div class="footer-section" id="sobre-nosaltres">
-                <h3>FlexShop</h3>
+            <section class="footer-section" id="sobre-nosaltres" aria-labelledby="sobre-nosaltres-title">
+                <h3 id="sobre-nosaltres-title">FlexShop</h3>
                 <p>La teva botiga online de confiança per a tecnologia i electrònica de qualitat.</p>
-            </div>
+            </section>
 
-            <div class="footer-section">
+            <nav class="footer-section" aria-label="Enllaços ràpids">
                 <h3>Enllaços Ràpids</h3>
                 <ul>
                     <li><a href="#inici">Inici</a></li>
@@ -109,9 +126,9 @@
                     <li><a href="#ofertes">Ofertes</a></li>
                     <li><a href="#novetats">Novetats</a></li>
                 </ul>
-            </div>
+            </nav>
 
-            <div class="footer-section">
+            <nav class="footer-section" aria-label="Suport i atenció al client">
                 <h3>Suport</h3>
                 <ul>
                     <li><a href="#ajuda">Centre d'Ajuda</a></li>
@@ -119,16 +136,20 @@
                     <li><a href="#garantia">Garantia</a></li>
                     <li><a href="#contacte">Contacte</a></li>
                 </ul>
-            </div>
+            </nav>
 
-            <div class="footer-section">
+            <address class="footer-section" aria-label="Informació de contacte">
                 <h3>Contacte</h3>
                 <ul>
-                    <li>📧 info@flexshop.cat</li>
-                    <li>📞 +34 900 123 456</li>
+                    <li>📧 <a href="mailto:info@flexshop.cat">info@flexshop.cat</a></li>
+                    <li>📞 <a href="tel:+34900123456">+34 900 123 456</a></li>
                     <li>📍 Carrer de la Tecnologia, 123</li>
                     <li>🌍 Barcelona, Catalunya</li>
                 </ul>
+            </address>
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; <time datetime="2026">2026</time> FlexShop. Tots els drets reservats.</p>
             </div>
         </div>
     </footer>
