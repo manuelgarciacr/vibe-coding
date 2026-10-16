@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda Online - Ecommerce</title>
+  <!-- Estilos CSS externos -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- 1. NAVBAR CON SELECTOR DE IDIOMA (i18n), CANASTA Y MENÚ HAMBURGUESA -->
+  <header class="navbar">
+    <a href="#" class="logo">ShopStyle</a>
+    
+    <!-- Menú de navegación (colapsable en móvil) -->
+    <nav class="nav-menu" id="nav-menu">
+      <ul class="nav-links">
+        <li><a href="#inicio" data-i18n="nav_home">Inicio</a></li>
+        <li><a href="#productos" data-i18n="nav_products">Productos</a></li>
+        <li><a href="#ofertas" data-i18n="nav_offers">Ofertas</a></li>
+        <li><a href="#contacto" data-i18n="nav_contact">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- Acciones (Selector i18n, Canasta y Menú móvil) -->
+    <div class="nav-actions">
+      <!-- Selector de idioma (Extensible) -->
+      <div class="lang-selector-wrapper">
+        <select id="lang-select" class="lang-select" aria-label="Seleccionar idioma">
+          <option value="es">🇪🇸 ES</option>
+          <option value="ca">🏴󠁥󠁳󠁣󠁴󠁿 CA</option>
+          <option value="en">🇬🇧 EN</option>
+        </select>
+      </div>
+
+      <!-- Botón Canasta de compra -->
+      <button class="cart-btn" id="cart-button" aria-label="Abrir canasta de compra">
+        🛒 <span data-i18n="cart_label">Canasta</span> (<span id="cart-count">0</span>)
+      </button>
+      
+      <!-- Botón Hamburguesa para móvil -->
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Abrir menú" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 2. LISTA DE PRODUCTOS (3 ÍTEMS CON TRADUCCIÓN i18n) -->
+  <main id="productos">
+    <h1 class="section-title" data-i18n="section_title">Productos Destacados</h1>
+
+    <section class="product-list">
+      <!-- Producto 1 -->
+      <article class="product-card" 
+               data-id="prod-1" 
+               data-price="89.99" 
+               data-image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60">
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60" alt="Auriculares Inalámbricos">
+        <div class="product-info">
+          <h2 class="product-title" data-i18n="prod1_title">Auriculares Bluetooth Pro</h2>
+          <p class="product-desc" data-i18n="prod1_desc">Cancelación de ruido activa y batería de hasta 30 horas con sonido de alta definición.</p>
+          <div class="product-price-action">
+            <span class="product-price" data-price-amount="89.99">89,99 €</span>
+            <button class="add-to-cart-btn" data-i18n="buy_btn">Comprar</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Producto 2 -->
+      <article class="product-card" 
+               data-id="prod-2" 
+               data-price="129.50" 
+               data-image="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop&q=60">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop&q=60" alt="Reloj Inteligente">
+        <div class="product-info">
+          <h2 class="product-title" data-i18n="prod2_title">Smartwatch Deportivo</h2>
+          <p class="product-desc" data-i18n="prod2_desc">Monitor de frecuencia cardíaca, resistencia al agua y GPS integrado para entrenamientos.</p>
+          <div class="product-price-action">
+            <span class="product-price" data-price-amount="129.50">129,50 €</span>
+            <button class="add-to-cart-btn" data-i18n="buy_btn">Comprar</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Producto 3 -->
+      <article class="product-card" 
+               data-id="prod-3" 
+               data-price="49.90" 
+               data-image="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500&auto=format&fit=crop&q=60">
+        <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500&auto=format&fit=crop&q=60" alt="Altavoz Inteligente">
+        <div class="product-info">
+          <h2 class="product-title" data-i18n="prod3_title">Altavoz Inteligente Mini</h2>
+          <p class="product-desc" data-i18n="prod3_desc">Control por voz, sonido envolvente de 360 grados y conectividad multiplataforma.</p>
+          <div class="product-price-action">
+            <span class="product-price" data-price-amount="49.90">49,90 €</span>
+            <button class="add-to-cart-btn" data-i18n="buy_btn">Comprar</button>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- 3. FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-copy">
+        &copy; 2026 ShopStyle. <span data-i18n="footer_copy">Todos los derechos reservados.</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#privacidad" data-i18n="footer_privacy">Privacidad</a></li>
+        <li><a href="#terminos" data-i18n="footer_terms">Términos</a></li>
+        <li><a href="#soporte" data-i18n="footer_support">Soporte</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- 4. VENTANA MODAL DE LA CANASTA -->
+  <div class="cart-modal-overlay" id="cart-modal" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+    <div class="cart-modal">
+      <div class="cart-header">
+        <h2 id="cart-title" data-i18n="cart_modal_title">🛒 Canasta de Compra</h2>
+        <button class="close-cart-btn" id="close-cart-btn" aria-label="Cerrar canasta">&times;</button>
+      </div>
+
+      <!-- Contenedor dinámico de productos en la canasta -->
+      <div class="cart-items" id="cart-items"></div>
+
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span data-i18n="cart_total_label">Total:</span>
+          <strong id="cart-total-price">0,00 €</strong>
+        </div>
+        <div class="cart-actions">
+          <button class="clear-cart-btn" id="clear-cart-btn" data-i18n="cart_clear_btn">Vaciar canasta</button>
+          <button class="checkout-btn" id="checkout-btn" data-i18n="cart_checkout_btn">Finalizar compra</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. VENTANA MODAL DE PAGO CON TARJETA INTERACTIVA 3D -->
+  <div class="checkout-modal-overlay" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+    <div class="checkout-modal">
+      <div class="checkout-header">
+        <h2 id="checkout-title" data-i18n="checkout_modal_title">💳 Pasarela de Pago Seguro</h2>
+        <button class="close-checkout-btn" id="close-checkout-btn" aria-label="Cerrar pasarela de pago">&times;</button>
+      </div>
+
+      <div class="checkout-body">
+        <!-- Resumen del pedido -->
+        <div class="order-summary-box">
+          <div class="summary-label" data-i18n="summary_label">Importe total a pagar:</div>
+          <div class="summary-amount" id="checkout-total-display">0,00 €</div>
+        </div>
+
+        <!-- ESCENARIO 3D DE LA TARJETA REALISTA -->
+        <div class="card-scene">
+          <div class="credit-card issuer-default" id="credit-card">
+            
+            <!-- CARA FRONTAL -->
+            <div class="card-face card-front" id="card-front-face">
+              <div class="card-glare"></div>
+              
+              <div class="card-front-top">
+                <div class="card-chip-container">
+                  <div class="chip-slot"></div>
+                  <div class="chip-slot"></div>
+                  <div class="chip-slot"></div>
+                </div>
+                <div class="contactless-wave" title="Contactless">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                    <path d="M8 7a8 8 0 0 1 0 10"></path>
+                    <path d="M11 9a5 5 0 0 1 0 6"></path>
+                    <path d="M14 11a2 2 0 0 1 0 2"></path>
+                  </svg>
+                </div>
+                <!-- Logo dinámico del emisor -->
+                <div class="card-brand-logo" id="card-brand-logo"></div>
+              </div>
+
+              <!-- Número de la tarjeta -->
+              <div class="card-number-display" id="card-number-display">•••• •••• •••• ••••</div>
+
+              <!-- Fila inferior: Titular y Caducidad -->
+              <div class="card-front-bottom">
+                <div class="card-holder-group">
+                  <span class="card-mini-label" data-i18n="card_holder_label">TITULAR DE LA TARJETA</span>
+                  <span class="card-value-holder" id="card-holder-display" data-i18n-default="card_holder_default">NOMBRE Y APELLIDOS</span>
+                </div>
+                <div class="card-expiry-group">
+                  <span class="card-mini-label" data-i18n="card_expiry_label">CADUCA</span>
+                  <span class="card-value-expiry" id="card-expiry-display">MM/AA</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARA POSTERIOR (Giro 3D para CVV / CV2) -->
+            <div class="card-face card-back" id="card-back-face">
+              <div class="card-glare"></div>
+              <div class="card-magnetic-stripe"></div>
+              
+              <div class="card-back-body">
+                <div class="card-signature-area">
+                  <div class="signature-lines"></div>
+                  <div class="cvv-box">
+                    <span class="cvv-label" data-i18n="card_cvv_label">CVV / CV2</span>
+                    <span class="cvv-value" id="card-cvv-display">•••</span>
+                  </div>
+                </div>
+                <div class="card-back-footer">
+                  <p class="card-back-notice" data-i18n="card_notice">Esta tarjeta es intransferible y está sujeta a los términos del emisor.</p>
+                  <div class="card-back-logo" id="card-back-brand-logo"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- FORMULARIO DE PAGO CON VALIDACIÓN -->
+        <form class="checkout-form" id="checkout-form" novalidate>
+          
+          <!-- Campo: Nombre -->
+          <div class="form-group" id="group-card-name">
+            <label for="card-name" data-i18n="form_name_label">Nombre completo del titular</label>
+            <input type="text" 
+                   id="card-name" 
+                   name="cardName" 
+                   placeholder="Ej. Carlos Santana Martínez" 
+                   data-i18n-placeholder="form_name_placeholder"
+                   autocomplete="cc-name" 
+                   required>
+            <span class="error-msg" id="error-card-name" data-i18n="form_name_error">Por favor, introduce el nombre del titular (mínimo 3 letras).</span>
+          </div>
+
+          <!-- Campo: Email -->
+          <div class="form-group" id="group-card-email">
+            <label for="card-email" data-i18n="form_email_label">Correo electrónico de confirmación</label>
+            <input type="email" 
+                   id="card-email" 
+                   name="cardEmail" 
+                   placeholder="ejemplo@correo.com" 
+                   data-i18n-placeholder="form_email_placeholder"
+                   autocomplete="email" 
+                   required>
+            <span class="error-msg" id="error-card-email" data-i18n="form_email_error">Introduce un correo electrónico válido (ejemplo@correo.com).</span>
+          </div>
+
+          <!-- Campo: Número de tarjeta con emisor en tiempo real -->
+          <div class="form-group" id="group-card-number">
+            <div class="label-with-issuer">
+              <label for="card-number-input" data-i18n="form_number_label">Número de tarjeta</label>
+              <span class="issuer-pill" id="issuer-badge">Tarjeta</span>
+            </div>
+            <div class="input-card-wrapper">
+              <input type="text" 
+                     id="card-number-input" 
+                     name="cardNumber" 
+                     maxlength="19" 
+                     placeholder="4000 1234 5678 9010" 
+                     autocomplete="cc-number" 
+                     inputmode="numeric" 
+                     required>
+              <div class="input-card-icon" id="input-card-icon"></div>
+            </div>
+            <span class="error-msg" id="error-card-number" data-i18n="form_number_error">Número de tarjeta inválido (comprueba los dígitos).</span>
+          </div>
+
+          <!-- Fila Flexbox: Caducidad y CVV -->
+          <div class="form-row">
+            <div class="form-group form-col" id="group-card-expiry">
+              <label for="card-expiry-input" data-i18n="form_expiry_label">Caducidad (MM/AA)</label>
+              <input type="text" 
+                     id="card-expiry-input" 
+                     name="cardExpiry" 
+                     maxlength="5" 
+                     placeholder="MM/AA" 
+                     autocomplete="cc-exp" 
+                     inputmode="numeric" 
+                     required>
+              <span class="error-msg" id="error-card-expiry" data-i18n="form_expiry_error">Fecha inválida o vencida (MM/AA).</span>
+            </div>
+
+            <div class="form-group form-col" id="group-card-cvv">
+              <label for="card-cvv-input" data-i18n="form_cvv_label">CVV / CV2</label>
+              <input type="password" 
+                     id="card-cvv-input" 
+                     name="cardCvv" 
+                     maxlength="4" 
+                     placeholder="123" 
+                     autocomplete="cc-csc" 
+                     inputmode="numeric" 
+                     required>
+              <span class="error-msg" id="error-card-cvv" data-i18n="form_cvv_error">CVV de 3 o 4 dígitos requerido.</span>
+            </div>
+          </div>
+
+          <!-- Botones de acción del formulario -->
+          <div class="checkout-actions">
+            <button type="button" class="back-to-cart-btn" id="back-to-cart-btn" data-i18n="btn_back_to_cart">← Volver a la canasta</button>
+            <button type="submit" class="pay-btn" id="pay-btn" data-i18n="btn_pay">Confirmar y Pagar</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. MODAL DE COMPRA EXITOSA -->
+  <div class="success-modal-overlay" id="success-modal">
+    <div class="success-modal">
+      <div class="success-badge">✓</div>
+      <h3 data-i18n="success_title">¡Pago Realizado con Éxito!</h3>
+      <p data-i18n="success_desc">Hemos procesado tu pago de forma segura y confirmado tu pedido.</p>
+      <div class="success-details" id="success-details"></div>
+      <button class="success-btn" id="success-close-btn" data-i18n="success_btn">Aceptar y continuar</button>
+    </div>
+  </div>
+
+  <!-- Script compilado desde TypeScript -->
+  <script src="cart.js"></script>
+</body>
+</html>
